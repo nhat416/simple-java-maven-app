@@ -1,15 +1,11 @@
 pipeline {
-    agent {
-        dockerfile {
-	    filename 'Dockerfile'
-        }
-    }
+    agent any
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn clean'
             }
         }
 	stage('Test') {
